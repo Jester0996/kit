@@ -199,7 +199,7 @@ export default function App() {
       </a>
 
       <header className={styles.header}>
-        <h1 className={styles.title}>a11y-ui-kit</h1>
+        <h1 className={styles.title}>Kit</h1>
 
         <p className={styles.lead}>
           Доступные React-компоненты на Radix UI: клавиатурная навигация, ARIA и
