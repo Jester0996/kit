@@ -1,0 +1,154 @@
+.button {
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+/* Variants */
+
+.primary {
+  color: #ffffff;
+  background-color: var(--color-accent);
+}
+
+.primary:hover:not(:disabled, [aria-disabled="true"]) {
+  background-color: #4338ca;
+}
+
+.primary:active:not(:disabled, [aria-disabled="true"]) {
+  background-color: #3730a3;
+}
+
+.secondary {
+  color: #27272a;
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border);
+}
+
+.secondary:hover:not(:disabled, [aria-disabled="true"]) {
+  background-color: #e4e4e7;
+}
+
+.outline {
+  color: #27272a;
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.outline:hover:not(:disabled, [aria-disabled="true"]) {
+  background-color: var(--color-surface-subtle);
+}
+
+.danger {
+  color: #ffffff;
+  background-color: #dc2626;
+}
+
+.danger:hover:not(:disabled, [aria-disabled="true"]) {
+  background-color: #b91c1c;
+}
+
+.danger:active:not(:disabled, [aria-disabled="true"]) {
+  background-color: #991b1b;
+}
+
+/* Sizes */
+
+.sm {
+  min-height: 32px;
+  padding: 6px 12px;
+
+  font-size: 13px;
+}
+
+.md {
+  min-height: 40px;
+  padding: 9px 16px;
+
+  font-size: 14px;
+}
+
+.lg {
+  min-height: 48px;
+  padding: 12px 20px;
+
+  font-size: 16px;
+}
+
+/* Focus */
+
+.button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Disabled */
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button[aria-disabled="true"]:not([aria-busy="true"]) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button[aria-busy="true"] {
+  cursor: progress;
+}
+
+/* Loading spinner */
+
+.spinner {
+  display: inline-block;
+  flex: 0 0 auto;
+
+  width: 1em;
+  height: 1em;
+
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  .spinner {
+    animation: none;
+  }
+}

@@ -1,0 +1,45 @@
+.content {
+  /* Выше, чем у Dialog (1001), чтобы подсказки работали и внутри диалога. */
+  z-index: 1100;
+
+  box-sizing: border-box;
+  max-width: 280px;
+  padding: 6px 10px;
+
+  border-radius: var(--radius-sm);
+
+  background: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 15%),
+    0 4px 6px -4px rgb(0 0 0 / 15%);
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Анимация только если пользователь не просил уменьшить движение. */
+@media (prefers-reduced-motion: no-preference) {
+  .content[data-state="delayed-open"],
+  .content[data-state="instant-open"] {
+    animation: tooltipIn 120ms ease-out;
+  }
+}
+
+/* Режим высокой контрастности: у фона нет цвета, нужна граница. */
+@media (forced-colors: active) {
+  .content {
+    border: 1px solid CanvasText;
+  }
+}
